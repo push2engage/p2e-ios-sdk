@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, '7.0'
   s.ios.platform             = :ios, '7.0'
-  s.ios.preserve_paths       = 'P2EPush.framework'
-  s.ios.public_header_files  = 'P2EPush.framework/Versions/A/Headers/*.h'
-  s.ios.resource             = 'P2EPush.framework/Versions/A/Resources/**/*'
-  s.ios.vendored_frameworks  = 'P2EPush.framework'
+  s.ios.preserve_paths       = 'ios/P2EPush.framework'
+  s.ios.public_header_files  = 'ios/P2EPush.framework/Versions/A/Headers/*.h'
+  s.ios.resource             = 'ios/P2EPush.framework/Versions/A/Resources/**/*'
+  s.ios.vendored_frameworks  = 'ios/P2EPush.framework'
 end
