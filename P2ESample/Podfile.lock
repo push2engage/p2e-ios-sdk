@@ -1,0 +1,10 @@
+PODS:
+  - P2EPush (1.0.0)
+
+DEPENDENCIES:
+  - P2EPush (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  P2EPush: 0fffc3a87ab65258f81db622a0ef53b758a8f599
+
+COCOAPODS: 0.39.0
