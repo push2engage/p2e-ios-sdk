@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010A4E101CAE721A0038A371 /* p2e.plist in Resources */ = {isa = PBXBuildFile; fileRef = 010A4E0F1CAE721A0038A371 /* p2e.plist */; };
+		010A4E201CAE72260038A371 /* BadgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A4E141CAE72260038A371 /* BadgeTableViewController.m */; };
+		010A4E211CAE72260038A371 /* QuietTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A4E171CAE72260038A371 /* QuietTimeTableViewController.m */; };
+		010A4E221CAE72260038A371 /* AddTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A4E1A1CAE72260038A371 /* AddTagTableViewController.m */; };
+		010A4E231CAE72260038A371 /* TagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A4E1C1CAE72260038A371 /* TagCell.m */; };
+		010A4E241CAE72260038A371 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A4E1D1CAE72260038A371 /* TagCell.xib */; };
+		010A4E251CAE72260038A371 /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A4E1F1CAE72260038A371 /* TagViewController.m */; };
 		014F39751C69AF9800C707EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 014F39741C69AF9800C707EF /* main.m */; };
 		014F39781C69AF9800C707EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 014F39771C69AF9800C707EF /* AppDelegate.m */; };
 		014F397B1C69AF9800C707EF /* P2EViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014F397A1C69AF9800C707EF /* P2EViewController.m */; };
@@ -17,6 +24,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010A4E0F1CAE721A0038A371 /* p2e.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = p2e.plist; sourceTree = "<group>"; };
+		010A4E131CAE72260038A371 /* BadgeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeTableViewController.h; sourceTree = "<group>"; };
+		010A4E141CAE72260038A371 /* BadgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeTableViewController.m; sourceTree = "<group>"; };
+		010A4E161CAE72260038A371 /* QuietTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuietTimeTableViewController.h; sourceTree = "<group>"; };
+		010A4E171CAE72260038A371 /* QuietTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuietTimeTableViewController.m; sourceTree = "<group>"; };
+		010A4E191CAE72260038A371 /* AddTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTagTableViewController.h; sourceTree = "<group>"; };
+		010A4E1A1CAE72260038A371 /* AddTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTagTableViewController.m; sourceTree = "<group>"; };
+		010A4E1B1CAE72260038A371 /* TagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCell.h; sourceTree = "<group>"; };
+		010A4E1C1CAE72260038A371 /* TagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCell.m; sourceTree = "<group>"; };
+		010A4E1D1CAE72260038A371 /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		010A4E1E1CAE72260038A371 /* TagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		010A4E1F1CAE72260038A371 /* TagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
 		014F39701C69AF9800C707EF /* P2ESample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2ESample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		014F39741C69AF9800C707EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		014F39761C69AF9800C707EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,9 +63,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010A4E111CAE72260038A371 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				010A4E121CAE72260038A371 /* BadgeController */,
+				010A4E151CAE72260038A371 /* QuiteTimeController */,
+				010A4E181CAE72260038A371 /* TagController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		010A4E121CAE72260038A371 /* BadgeController */ = {
+			isa = PBXGroup;
+			children = (
+				010A4E131CAE72260038A371 /* BadgeTableViewController.h */,
+				010A4E141CAE72260038A371 /* BadgeTableViewController.m */,
+			);
+			path = BadgeController;
+			sourceTree = "<group>";
+		};
+		010A4E151CAE72260038A371 /* QuiteTimeController */ = {
+			isa = PBXGroup;
+			children = (
+				010A4E161CAE72260038A371 /* QuietTimeTableViewController.h */,
+				010A4E171CAE72260038A371 /* QuietTimeTableViewController.m */,
+			);
+			path = QuiteTimeController;
+			sourceTree = "<group>";
+		};
+		010A4E181CAE72260038A371 /* TagController */ = {
+			isa = PBXGroup;
+			children = (
+				010A4E191CAE72260038A371 /* AddTagTableViewController.h */,
+				010A4E1A1CAE72260038A371 /* AddTagTableViewController.m */,
+				010A4E1B1CAE72260038A371 /* TagCell.h */,
+				010A4E1C1CAE72260038A371 /* TagCell.m */,
+				010A4E1D1CAE72260038A371 /* TagCell.xib */,
+				010A4E1E1CAE72260038A371 /* TagViewController.h */,
+				010A4E1F1CAE72260038A371 /* TagViewController.m */,
+			);
+			path = TagController;
+			sourceTree = "<group>";
+		};
 		014F39671C69AF9800C707EF = {
 			isa = PBXGroup;
 			children = (
+				010A4E111CAE72260038A371 /* ViewController */,
+				010A4E0F1CAE721A0038A371 /* p2e.plist */,
 				014F39721C69AF9800C707EF /* P2ESample */,
 				014F39711C69AF9800C707EF /* Products */,
 				3C218F8B5280D8C5C13E8DF8 /* Pods */,
@@ -164,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				014F39831C69AF9800C707EF /* LaunchScreen.storyboard in Resources */,
+				010A4E241CAE72260038A371 /* TagCell.xib in Resources */,
 				014F39801C69AF9800C707EF /* Assets.xcassets in Resources */,
+				010A4E101CAE721A0038A371 /* p2e.plist in Resources */,
 				014F397E1C69AF9800C707EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,9 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010A4E231CAE72260038A371 /* TagCell.m in Sources */,
+				010A4E251CAE72260038A371 /* TagViewController.m in Sources */,
+				010A4E211CAE72260038A371 /* QuietTimeTableViewController.m in Sources */,
 				014F397B1C69AF9800C707EF /* P2EViewController.m in Sources */,
 				014F39781C69AF9800C707EF /* AppDelegate.m in Sources */,
 				014F39751C69AF9800C707EF /* main.m in Sources */,
+				010A4E221CAE72260038A371 /* AddTagTableViewController.m in Sources */,
+				010A4E201CAE72260038A371 /* BadgeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

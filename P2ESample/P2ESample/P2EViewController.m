@@ -22,6 +22,11 @@ static NSString *const resetBadgeCount = @"Reset Badge count";
 static NSString *const incrementBadgeCount = @"Increment Badge count";
 static NSString *const decrementBadgeCount = @"Decrease badge count";
 static NSString *const sendLocation = @"Send Location";
+static NSString *const addAlias = @"Add Alias";
+static NSString *const addEmail = @"Add Email";
+
+static NSString *const tag = @"Tag";
+static NSString *const badge = @"Badge";
 
 @interface P2EViewController ()
 
@@ -35,8 +40,10 @@ static NSString *const sendLocation = @"Send Location";
 {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view, typically from a nib.
-    _dataArray = @[checkQuiteTime, enableQuiteTime, disableQuiteTime, addTag, addTagInGroup, removeTag, removeTagInGroup, updateBadgeCount, resetBadgeCount, incrementBadgeCount, decrementBadgeCount, sendLocation];
+	// Do any additional setup after loading the view, typically from a nib.
+    //_dataArray = @[checkQuiteTime, enableQuiteTime, disableQuiteTime, addTag, addTagInGroup, removeTag, removeTagInGroup, updateBadgeCount, resetBadgeCount, incrementBadgeCount, decrementBadgeCount, sendLocation];
+    _dataArray = @[tag, badge, checkQuiteTime, enableQuiteTime, disableQuiteTime,sendLocation, addAlias, addEmail];
+    
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MainBasicCell"];
 }
@@ -58,6 +65,7 @@ static NSString *const sendLocation = @"Send Location";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainBasicCell" forIndexPath:indexPath];
     cell.textLabel.text = [_dataArray objectAtIndex:indexPath.row];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 
@@ -77,7 +85,7 @@ static NSString *const sendLocation = @"Send Location";
         [self presentViewController:alertController animated:YES completion:nil];
     }
     else if ([cellText isEqualToString:enableQuiteTime]) {
-        
+        [self performSegueWithIdentifier:@"quietTimeController" sender:self];
     }
     else if ([cellText isEqualToString:disableQuiteTime]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:disableQuiteTime message:@"Quite time disabled." preferredStyle:UIAlertControllerStyleAlert];
@@ -90,144 +98,6 @@ static NSString *const sendLocation = @"Send Location";
         
         [Push disableQuietTime];
     }
-    else if ([cellText isEqualToString:addTag]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:addTag message:@"This tag will be added to user tag list" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = addTag;
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            if (alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) {
-                [Push addTag:alertController.textFields.firstObject.text];
-            }
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-    }
-    else if ([cellText isEqualToString:addTagInGroup]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:addTag message:@"This tag will be added to a group name" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = addTag;
-        }];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = group;
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            if ((alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) &&
-                (alertController.textFields.lastObject.text && alertController.textFields.lastObject.text.length)) {
-                [Push addTag:alertController.textFields.firstObject.text inGroup:alertController.textFields.lastObject.text];
-            }
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-    }
-    else if ([cellText isEqualToString:removeTag]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:removeTag message:@"This tag will be removed from user tag list" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = removeTag;
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            if (alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) {
-                [Push removeTag:alertController.textFields.firstObject.text];
-            }
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-    else if ([cellText isEqualToString:removeTagInGroup]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:addTag message:@"This tag will be removed from a group name" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = removeTag;
-        }];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = group;
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            if ((alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) &&
-                (alertController.textFields.lastObject.text && alertController.textFields.lastObject.text.length)) {
-                [Push removeTag:alertController.textFields.firstObject.text inGroup:alertController.textFields.lastObject.text];
-            }
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-    else if ([cellText isEqualToString:updateBadgeCount]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:updateBadgeCount message:@"Please update badge count" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.keyboardType = UIKeyboardTypeNumberPad;
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            if (alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) {
-                [Push updateBadgeCount:[alertController.textFields.firstObject.text integerValue]];
-            }
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-    else if ([cellText isEqualToString:resetBadgeCount]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:resetBadgeCount message:@"Badge has been reset." preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", @"Ok action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        [alertController addAction:cancelAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-        [Push resetBadgeCount];
-    }
-    else if ([cellText isEqualToString:incrementBadgeCount]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:incrementBadgeCount message:@"Badge has been incremented." preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", @"Ok action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        [alertController addAction:cancelAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-        [Push increaseBadgeCount];
-    }
-    else if ([cellText isEqualToString:decrementBadgeCount]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:decrementBadgeCount message:@"Badge has been decremented." preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", @"Ok action") style:UIAlertActionStyleDestructive handler:nil];
-        
-        [alertController addAction:cancelAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-        [Push decreaseBadgeCount];
-    }
     else if ([cellText isEqualToString:sendLocation]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:sendLocation message:@"Location sent to server" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -239,6 +109,76 @@ static NSString *const sendLocation = @"Send Location";
         
         [Push sendLocation];
     }
+    else if ([cellText isEqualToString:tag]) {
+        [self performSegueWithIdentifier:@"tagViewController" sender:self];
+        
+    }
+    else if ([cellText isEqualToString:badge]) {
+        [self performSegueWithIdentifier:@"badgeTableViewController" sender:self];
+    }
+    else if ([cellText isEqualToString:addEmail]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:addEmail message:@"Associate Email to Push2Engage" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = addEmail;
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            if (alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) {
+                if ([self validateEmailWithString:alertController.textFields.firstObject.text]) {
+                    [Push setEmailID:alertController.textFields.firstObject.text];
+                }
+                else {
+                    [self showError:@"Invalid Email ID"];
+                }
+            }
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    else if ([cellText isEqualToString:addAlias]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:addEmail message:@"Associate Alias to Push2Engage" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = addAlias;
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleDestructive handler:nil];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            if (alertController.textFields.firstObject.text && alertController.textFields.firstObject.text.length) {
+                [Push setAlias:alertController.textFields.firstObject.text];
+            }
+            else {
+                [self showError:@"Invalid Alias"];
+            }
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+- (BOOL)validateEmailWithString:(NSString*)email
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
+- (void)showError:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", @"Ok action") style:UIAlertActionStyleDestructive handler:nil];
+    
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

@@ -9,26 +9,51 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+
+/**
+ *  Object of this class is passed to "startPushWithConfiguration" or "updatePushConfigration" funtion in Push.h.
+ */
 @interface PushConfig : NSObject
 
-#pragma mark - App Key
+/**
+ *  Production Key is mandatory when application is in Release Mode.
+ */
 @property (nonatomic, strong) NSString *productionAppKey;
+
+/**
+ *  Production Key Secret is mandatory when application is in Release Mode.
+ */
 @property (nonatomic, strong) NSString *productionAppKeySecret;
 
+/**
+ *  Devlopment Key is mandatory when application is in Release Mode.
+ */
 @property (nonatomic, strong) NSString *developmentAppKey;
+
+/**
+ *  Devlopment Key Secret is mandatory when application is in Release Mode.
+ */
 @property (nonatomic, strong) NSString *developmentAppKeySecret;
 
 
-#pragma mark - Location
+/**
+ *  If this is set yes, and the end user has provided access for locationn services, then the app will fetch location every time app is launched or every time the applicationn goes comes to foregorund.
+ */
 @property (nonatomic, assign) BOOL locationEnabled;
 
-// Default 10 sec
+/**
+ *  Location timeout value by default is 10 seconds. It tells the SDK to keep looking for the valid location till the timeout period. If the timeout period expires, location fetching will be diabled.
+ */
 @property (nonatomic, assign) NSTimeInterval locationTimeout;
 
-// Default 1000m
+/**
+ *  Represents the accuracy in meters for Location service. Default is set to 1000 meters.
+ */
 @property (nonatomic, assign) CLLocationAccuracy desiredAccuracy;
 
-// Default NO (This will continue fetching location with minimum interval of 1 hour.)
+/**
+ *  This tells the SDK to fecth location in background. By default this is set to NO. If this is set, location will be fetched every hour.
+ */
 @property (nonatomic, assign) BOOL allowsContinousLocationUpdates;
 
 @end
