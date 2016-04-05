@@ -7,7 +7,7 @@
 //
 
 #import "QuietTimeTableViewController.h"
-#import "Push.h"
+#import <P2EPush/P2E.h>
 #import <ActionSheetPicker-3.0/ActionSheetDatePicker.h>
 
 @class AbstractActionSheetPicker;

@@ -1,10 +1,13 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.0.5)
   - P2EPush (1.0.0)
 
 DEPENDENCIES:
-  - P2EPush (~> 1.0.0)
+  - ActionSheetPicker-3.0
+  - P2EPush (= 1.0.0)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
   P2EPush: 0fffc3a87ab65258f81db622a0ef53b758a8f599
 
 COCOAPODS: 0.39.0

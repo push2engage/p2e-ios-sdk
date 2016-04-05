@@ -4,6 +4,7 @@
 # use_frameworks!
 
 target 'P2ESample' do
-    pod 'P2EPush', '~> 1.0.0'
+    pod 'P2EPush', '1.0.0'
+    pod 'ActionSheetPicker-3.0'
 end
 

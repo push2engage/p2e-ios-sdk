@@ -108,8 +108,8 @@
 		014F39671C69AF9800C707EF = {
 			isa = PBXGroup;
 			children = (
-				010A4E111CAE72260038A371 /* ViewController */,
 				010A4E0F1CAE721A0038A371 /* p2e.plist */,
+				010A4E111CAE72260038A371 /* ViewController */,
 				014F39721C69AF9800C707EF /* P2ESample */,
 				014F39711C69AF9800C707EF /* Products */,
 				3C218F8B5280D8C5C13E8DF8 /* Pods */,
@@ -414,7 +414,7 @@
 					"$(PROJECT_DIR)/External",
 				);
 				INFOPLIST_FILE = P2ESample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.til.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,7 +433,7 @@
 					"$(PROJECT_DIR)/External",
 				);
 				INFOPLIST_FILE = P2ESample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.til.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";

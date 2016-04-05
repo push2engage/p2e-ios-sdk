@@ -7,7 +7,7 @@
 //
 
 #import "TagViewController.h"
-#import "Push.h"
+#import <P2EPush/P2E.h>
 #import "TagCell.h"
 
 #define SCREENSIZE                              [UIScreen mainScreen].bounds.size

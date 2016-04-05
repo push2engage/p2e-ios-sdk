@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  P2ESample
 //
-//  Created by Ravi Prakash Sahu on 09/02/16.
+//  Created by Push2Engage on 09/02/16.
 //  Copyright © 2016 Push2Engage. All rights reserved.
 //
 
