@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>productionAppKey</key>
-	<string>d8960c45478042a89667190c6bcf9e97</string>
+	<string></string>
 	<key>productionKeySecret</key>
-	<string>412887933e2340dbbacfc0c02a29f2cd</string>
+	<string></string>
 	<key>developmentAppKey</key>
-	<string>0ff81171ac2645ffbea63c1864eb955a</string>
+	<string></string>
 	<key>developmentKeySecret</key>
-	<string>e095f5a52d464326850505807348a15c</string>
+	<string></string>
 </dict>
 </plist>

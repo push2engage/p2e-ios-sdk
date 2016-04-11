@@ -19,9 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /*
     PushConfig *pConfig = [PushConfig new];
-    pConfig.developmentAppKey = @"6604204f3a26453f8b1555009db63ac2";
-    pConfig.developmentAppKeySecret = @"f379724e9b5f41bba1839c4db69391e4";
+    pConfig.developmentAppKey = YOUR_DEV_APP_KEY;
+    pConfig.developmentAppKeySecret = YOUR_DEV_APP_KEY_SECRET;
+    pConfig.productionAppKey = YOUR_PROD_APP_KEY;
+    pConfig.productionAppKeySecret = YOUR_PROD_APP_KEY_SECRET;
     pConfig.locationEnabled = YES;
+    pConfig.allowsContinousLocationUpdates = YES;
+    
     [Push startPushWithConfiguration:pConfig];
     */
     
