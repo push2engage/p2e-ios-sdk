@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary = 'This SDK is used for Notification management via http://push2engage.com'
   s.license = 'Copyright (c) 2016 Push2Engage. All rights reserved'
   s.authors = {"Push2Engage"=>"support@push2engage.com"}
-  s.homepage = 'http://dev.push2engage.com'
+  s.homepage = 'https://push2engage.com'
   s.description = 'Push2Engage (http://push2engage.com) provides complete interface to send notification to various Mobile Platform. By using Push2Engage, businesses can uniquely target individual Mobile Device. Also businesses can target Mobile Device based on location.'
   s.frameworks = ["UIKit", "Foundation", "Security", "CoreLocation", "SystemConfiguration"]
   s.requires_arc = true
